@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const baseUrl ="http://localhost:8000/api/auth";
+const baseUrl ="https://wavy-backend.vercel.app/api/auth";
 
 const loginApi = async(email,password)=>{
 
