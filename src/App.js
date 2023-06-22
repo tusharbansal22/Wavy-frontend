@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes ,Route} from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Intro from "./components/Intro";
+import Dashboard from "./components/Dashboard";
 function App() {
   return (
     <div className="w-screen h-screen bg-slate-800 py-4 px-3">
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route exact path='/login' element={<Login />}> </Route>
         <Route exact path='/register' element={<Register />}>   </Route>
+        <Route exact path='/dashboard' element={<Dashboard />}>   </Route>
         <Route exact path='/' element={<Intro />}> </Route>
 
       </Routes>
