@@ -1,10 +1,10 @@
 import axios from "axios";
-import React from "react";
+
 
 const baseUrl ="http://localhost:8000/api/auth";
 
 const loginApi = async(email,password)=>{
-  console.log('called',email,password);
+
   let res;
   await axios.post(baseUrl+'/login',{
     email: email,
@@ -23,7 +23,7 @@ const loginApi = async(email,password)=>{
 }
 
 const registerApi = async(email,password)=>{
-  console.log('called',email,password);
+
   let res;
   await axios.post(baseUrl+'/register',{
     email: email,
