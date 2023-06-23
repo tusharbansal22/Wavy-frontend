@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl ="http://localhost:8000/api/event";
+const baseUrl ="https://wavy-backend.vercel.app/api/event";
 
 const registerEventApi = async (useremail ,eventname) => {
   let res;
