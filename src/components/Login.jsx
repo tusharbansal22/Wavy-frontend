@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { loginApi } from "../apis/authApi"
 import { Snackbar ,Alert} from "@mui/material";
 
@@ -14,6 +14,9 @@ function Login(){
     setOpen(false);
   };
   const navigate=useNavigate();
+  const location = useLocation();
+
+
    return <div>
 <form className="flex justify-center flex-col mx-2 py-30 " onSubmit={async(e)=>{
     e.preventDefault();
@@ -24,7 +27,13 @@ function Login(){
     }
     const res = await loginApi(e.target.email.value, e.target.password.value);
     if(res.status === 200){
-      navigate('/dashboard',{state:{email:e.target.email.value, password:e.target.password.value} , replace:true});
+
+      if(!location.state){
+        navigate('/dashboard',{state:{email:e.target.email.value, password:e.target.password.value} , replace:true});
+      }
+      else{
+        navigate(`/event/${location.state.eventName}`,{state:{email:e.target.email.value, password:e.target.password.value} , replace:true});
+      }
     }
     else{
       setMessage(res.data.message);
